@@ -45,7 +45,8 @@ class TwitterScala {
     val listOfqueries = twitter.search(query)
     val tweets = listOfqueries.getTweets.toList
     val numberOfLikes = tweets.map(s => s.getFavoriteCount)
-    numberOfLikes.sum
+    val totalLikes=numberOfLikes.foldLeft(0)(_ + _)
+    totalLikes/100
   }
 
   /**
@@ -58,7 +59,8 @@ class TwitterScala {
     val listOfQuery = twitter.search(query)
     val tweets = listOfQuery.getTweets.toList
     val numberOfRetweets = tweets.map(s => s.getRetweetCount)
-    numberOfRetweets.sum
+    val totalRetweets=numberOfRetweets.foldLeft(0)(_ + _)
+    totalRetweets/100
   }
 }
 
