@@ -19,13 +19,14 @@ class TwitterScalaTest extends FunSuite {
     assert(noOfTweets == 100)
   }
   test("Testing average number of retweets") {
-    assert((Await.result(tweetsObj.calculateRetweets("#scala"), 6.second)) / 100 == 2)
+    assert((Await.result(tweetsObj.calculateRetweets("#scala"), 6.second)) == 2)
   }
 
   test("Testing average number of likes") {
-    assert((Await.result(tweetsObj.calculateLikes("#scala"), 6.second)) / 100 == 0)
+    assert((Await.result(tweetsObj.calculateLikes("#scala"), 6.second)) == 0)
   }
 
 }
+
 
 
